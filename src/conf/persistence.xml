@@ -11,6 +11,17 @@
     <class>bean.MovieImage</class>
     <class>bean.Seat</class>
     <class>bean.MovieSession</class>
+    <class>bean.Category_1</class>
+    <class>bean.MovieSession_1</class>
+    <class>bean.Ticket_1</class>
+    <class>bean.Syssegments</class>
+    <class>bean.House_1</class>
+    <class>bean.Cinema_1</class>
+    <class>bean.MovieImage_1</class>
+    <class>bean.User_1</class>
+    <class>bean.Sysconstraints</class>
+    <class>bean.Seat_1</class>
+    <class>bean.Movie_1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://w2ksa.cs.cityu.edu.hk:1433/aiad001_db"/>

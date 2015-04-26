@@ -307,10 +307,36 @@
         <script>
 
             angular.module('login', [])
-                    .controller('loginRequest', function($scope, $location) {
-                
+                    .controller('loginRequest', function($scope, $location, $http) {
+
+
                 $scope.sdLoginRequest = function() {
-                    
+                    var req = {
+                        method: 'POST',
+                        url: '/Internet-based-cinema-ticketing-system/LoginControl?action=validate&email=' + $scope.loginRequest.email + "&password=" + $scope.loginRequest.password,
+                        headers: {
+                            'Content-Type': undefined
+                        },
+                        data: {
+                        }
+                    };
+
+
+                    $http(req).
+                            success(function(data, status, headers, config) {
+
+                        window.setTimeout(function() {
+                            // Move to a new location or you can do something else
+                            window.location.href = "/Internet-based-cinema-ticketing-system/index.jsp";
+
+                        }, 4000);                        
+                        // this callback will be called asynchronously
+                        // when the response is available
+                    }).
+                            error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                    });
                 };
             });
         </script>
