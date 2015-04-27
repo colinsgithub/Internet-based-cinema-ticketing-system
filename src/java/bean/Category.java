@@ -1,6 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author user
+ * @author poonkaho
  */
 @Entity
 @Table(name = "Category")
@@ -44,13 +43,13 @@ public class Category implements Serializable {
     @Basic(optional = false)
     @Column(name = "categoryName")
     private String categoryName;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryID")
-    private Collection<Movie> movieCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "subCategoryID")
     private Collection<Category> categoryCollection;
     @JoinColumn(name = "subCategoryID", referencedColumnName = "categoryID")
     @ManyToOne(optional = false)
     private Category subCategoryID;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryID")
+    private Collection<Movie> movieCollection;
 
     public Category() {
     }
@@ -81,15 +80,6 @@ public class Category implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Movie> getMovieCollection() {
-        return movieCollection;
-    }
-
-    public void setMovieCollection(Collection<Movie> movieCollection) {
-        this.movieCollection = movieCollection;
-    }
-
-    @XmlTransient
     public Collection<Category> getCategoryCollection() {
         return categoryCollection;
     }
@@ -104,6 +94,15 @@ public class Category implements Serializable {
 
     public void setSubCategoryID(Category subCategoryID) {
         this.subCategoryID = subCategoryID;
+    }
+
+    @XmlTransient
+    public Collection<Movie> getMovieCollection() {
+        return movieCollection;
+    }
+
+    public void setMovieCollection(Collection<Movie> movieCollection) {
+        this.movieCollection = movieCollection;
     }
 
     @Override
