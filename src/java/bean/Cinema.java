@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
@@ -22,7 +23,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author poonkaho
+ * @author user
  */
 @Entity
 @Table(name = "Cinema")
@@ -32,6 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cinema.findByCinemaID", query = "SELECT c FROM Cinema c WHERE c.cinemaID = :cinemaID"),
     @NamedQuery(name = "Cinema.findByCinemaName", query = "SELECT c FROM Cinema c WHERE c.cinemaName = :cinemaName"),
     @NamedQuery(name = "Cinema.findByCinemaAddress", query = "SELECT c FROM Cinema c WHERE c.cinemaAddress = :cinemaAddress"),
+    @NamedQuery(name = "Cinema.findByNumOfVote", query = "SELECT c FROM Cinema c WHERE c.numOfVote = :numOfVote"),
+    @NamedQuery(name = "Cinema.findByRank", query = "SELECT c FROM Cinema c WHERE c.rank = :rank"),
     @NamedQuery(name = "Cinema.findByImage1", query = "SELECT c FROM Cinema c WHERE c.image1 = :image1")})
 public class Cinema implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -46,8 +49,16 @@ public class Cinema implements Serializable {
     @Basic(optional = false)
     @Column(name = "cinemaAddress")
     private String cinemaAddress;
+    @Basic(optional = false)
+    @Column(name = "numOfVote")
+    private int numOfVote;
+    @Basic(optional = false)
+    @Column(name = "rank")
+    private int rank;
     @Column(name = "image1")
     private String image1;
+    @OneToMany(mappedBy = "cinemaID")
+    private Collection<Comment> commentCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cinemaID")
     private Collection<House> houseCollection;
 
@@ -58,10 +69,12 @@ public class Cinema implements Serializable {
         this.cinemaID = cinemaID;
     }
 
-    public Cinema(Integer cinemaID, String cinemaName, String cinemaAddress) {
+    public Cinema(Integer cinemaID, String cinemaName, String cinemaAddress, int numOfVote, int rank) {
         this.cinemaID = cinemaID;
         this.cinemaName = cinemaName;
         this.cinemaAddress = cinemaAddress;
+        this.numOfVote = numOfVote;
+        this.rank = rank;
     }
 
     public Integer getCinemaID() {
@@ -88,12 +101,37 @@ public class Cinema implements Serializable {
         this.cinemaAddress = cinemaAddress;
     }
 
+    public int getNumOfVote() {
+        return numOfVote;
+    }
+
+    public void setNumOfVote(int numOfVote) {
+        this.numOfVote = numOfVote;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
     public String getImage1() {
         return image1;
     }
 
     public void setImage1(String image1) {
         this.image1 = image1;
+    }
+
+    @XmlTransient
+    public Collection<Comment> getCommentCollection() {
+        return commentCollection;
+    }
+
+    public void setCommentCollection(Collection<Comment> commentCollection) {
+        this.commentCollection = commentCollection;
     }
 
     @XmlTransient
