@@ -24,52 +24,52 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author user
  */
 @Entity
-@Table(name = "MovieImage")
+@Table(name = "MovieVideo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "MovieImage.findAll", query = "SELECT m FROM MovieImage m"),
-    @NamedQuery(name = "MovieImage.findByMovieImageID", query = "SELECT m FROM MovieImage m WHERE m.movieImageID = :movieImageID"),
-    @NamedQuery(name = "MovieImage.findByImage", query = "SELECT m FROM MovieImage m WHERE m.image = :image")})
-public class MovieImage implements Serializable {
+    @NamedQuery(name = "MovieVideo.findAll", query = "SELECT m FROM MovieVideo m"),
+    @NamedQuery(name = "MovieVideo.findByMovieVideoID", query = "SELECT m FROM MovieVideo m WHERE m.movieVideoID = :movieVideoID"),
+    @NamedQuery(name = "MovieVideo.findByVideo", query = "SELECT m FROM MovieVideo m WHERE m.video = :video")})
+public class MovieVideo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "movieImageID")
-    private Integer movieImageID;
+    @Column(name = "movieVideoID")
+    private Integer movieVideoID;
     @Basic(optional = false)
-    @Column(name = "image")
-    private String image;
+    @Column(name = "video")
+    private String video;
     @JoinColumn(name = "movieID", referencedColumnName = "movieID")
     @ManyToOne(optional = false)
     private Movie movieID;
 
-    public MovieImage() {
+    public MovieVideo() {
     }
 
-    public MovieImage(Integer movieImageID) {
-        this.movieImageID = movieImageID;
+    public MovieVideo(Integer movieVideoID) {
+        this.movieVideoID = movieVideoID;
     }
 
-    public MovieImage(Integer movieImageID, String image) {
-        this.movieImageID = movieImageID;
-        this.image = image;
+    public MovieVideo(Integer movieVideoID, String video) {
+        this.movieVideoID = movieVideoID;
+        this.video = video;
     }
 
-    public Integer getMovieImageID() {
-        return movieImageID;
+    public Integer getMovieVideoID() {
+        return movieVideoID;
     }
 
-    public void setMovieImageID(Integer movieImageID) {
-        this.movieImageID = movieImageID;
+    public void setMovieVideoID(Integer movieVideoID) {
+        this.movieVideoID = movieVideoID;
     }
 
-    public String getImage() {
-        return image;
+    public String getVideo() {
+        return video;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     public Movie getMovieID() {
@@ -83,18 +83,18 @@ public class MovieImage implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (movieImageID != null ? movieImageID.hashCode() : 0);
+        hash += (movieVideoID != null ? movieVideoID.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MovieImage)) {
+        if (!(object instanceof MovieVideo)) {
             return false;
         }
-        MovieImage other = (MovieImage) object;
-        if ((this.movieImageID == null && other.movieImageID != null) || (this.movieImageID != null && !this.movieImageID.equals(other.movieImageID))) {
+        MovieVideo other = (MovieVideo) object;
+        if ((this.movieVideoID == null && other.movieVideoID != null) || (this.movieVideoID != null && !this.movieVideoID.equals(other.movieVideoID))) {
             return false;
         }
         return true;
@@ -102,7 +102,7 @@ public class MovieImage implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.MovieImage[ movieImageID=" + movieImageID + " ]";
+        return "bean.MovieVideo[ movieVideoID=" + movieVideoID + " ]";
     }
     
 }

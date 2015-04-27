@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
@@ -27,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author poonkaho
+ * @author user
  */
 @Entity
 @Table(name = "MovieSession")
@@ -55,12 +56,12 @@ public class MovieSession implements Serializable {
     private Integer price;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "msID")
     private Collection<Ticket> ticketCollection;
-    @JoinColumn(name = "movieID", referencedColumnName = "movieID")
-    @ManyToOne(optional = false)
-    private Movie movieID;
     @JoinColumn(name = "houseID", referencedColumnName = "houseID")
     @ManyToOne(optional = false)
     private House houseID;
+    @JoinColumn(name = "movieID", referencedColumnName = "movieID")
+    @ManyToOne(optional = false)
+    private Movie movieID;
 
     public MovieSession() {
     }
@@ -110,20 +111,20 @@ public class MovieSession implements Serializable {
         this.ticketCollection = ticketCollection;
     }
 
-    public Movie getMovieID() {
-        return movieID;
-    }
-
-    public void setMovieID(Movie movieID) {
-        this.movieID = movieID;
-    }
-
     public House getHouseID() {
         return houseID;
     }
 
     public void setHouseID(House houseID) {
         this.houseID = houseID;
+    }
+
+    public Movie getMovieID() {
+        return movieID;
+    }
+
+    public void setMovieID(Movie movieID) {
+        this.movieID = movieID;
     }
 
     @Override

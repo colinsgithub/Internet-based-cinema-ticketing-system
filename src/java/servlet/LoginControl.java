@@ -1,52 +1,64 @@
 package servlet;
 
-import java.io.BufferedReader;
+import bean.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 @WebServlet(name = "LoginControl", urlPatterns = {"/LoginControl"})
 public class LoginControl extends HttpServlet {
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action.equals("validate")) {
-//            System.out.println("********");
-//            StringBuilder buffer = new StringBuilder();
-//            BufferedReader reader = request.getReader();
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                buffer.append(line);
-//            }
-//            String data = buffer.toString();
-//            System.out.println(data);
+        if(action.equals("validate")){
             this.doValidate(request, response);
-
         }
     }
-
+    
     protected void doValidate(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException{
+        PrintWriter out = response.getWriter();
         String email = request.getParameter("email");
         String pwd = request.getParameter("password");
-        System.out.println(email + pwd);
-        if ((email != null && !email.isEmpty())
-                || (pwd != null && !pwd.isEmpty())) {
-//            System.out.println(request.getContextPath() + "/index.jsp");
-//            response.sendRedirect("login.jsp");
-            if (email.equals("user@gmail.com") && pwd.equals("user")) {
-                response.getWriter().write("true");
-            } else {
-                response.getWriter().write("false");
+        
+        if((email != null && !email.isEmpty()) 
+                || (pwd != null && !pwd.isEmpty())){
+            
+            ServletConfig sc = this.getServletConfig();
+            String db_driver = sc.getInitParameter("db_driver"),
+                   db_url = sc.getInitParameter("db_url"),
+                   db_user = sc.getInitParameter("db_user"),
+                   db_password = sc.getInitParameter("db_password");
+            String db_q = "SELECT * FROM \"User\" WHERE email = ?";
+            try {
+                Class.forName(db_driver);
+                Connection conn = DriverManager.getConnection(db_url, db_user, db_password);
+                PreparedStatement statmt = conn.prepareStatement(db_q);
+                statmt.setString(1, email);
+                if(statmt.execute()){
+                    ResultSet rs = statmt.getResultSet();
+                    String rs_pwd = rs.getString("password");
+                    if(pwd.equals(rs_pwd)){
+                        out.println("true");
+                        EntityManager em = Persistence.createEntityManagerFactory("ctsysPU").createEntityManager();
+                        User user = em.find(User.class, rs.getInt("userID"));
+                        HttpSession session = request.getSession();
+                        
+                    }
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(LoginControl.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginControl.class.getName()).log(Level.SEVERE, null, ex);
             }
-            return;
         }
-        response.getWriter().write("false");
     }
 }

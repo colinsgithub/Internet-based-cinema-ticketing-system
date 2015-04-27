@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
@@ -7,13 +8,13 @@ package bean;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author poonkaho
+ * @author user
  */
 @Entity
 @Table(name = "Category")
@@ -43,13 +44,13 @@ public class Category implements Serializable {
     @Basic(optional = false)
     @Column(name = "categoryName")
     private String categoryName;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subCategoryID")
-    private Collection<Category> categoryCollection;
-    @JoinColumn(name = "subCategoryID", referencedColumnName = "categoryID")
-    @ManyToOne(optional = false)
-    private Category subCategoryID;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryID")
+    @ManyToMany(mappedBy = "categoryCollection")
     private Collection<Movie> movieCollection;
+    @OneToMany(mappedBy = "parentID")
+    private Collection<Category> categoryCollection;
+    @JoinColumn(name = "parentID", referencedColumnName = "categoryID")
+    @ManyToOne
+    private Category parentID;
 
     public Category() {
     }
@@ -80,6 +81,15 @@ public class Category implements Serializable {
     }
 
     @XmlTransient
+    public Collection<Movie> getMovieCollection() {
+        return movieCollection;
+    }
+
+    public void setMovieCollection(Collection<Movie> movieCollection) {
+        this.movieCollection = movieCollection;
+    }
+
+    @XmlTransient
     public Collection<Category> getCategoryCollection() {
         return categoryCollection;
     }
@@ -88,21 +98,12 @@ public class Category implements Serializable {
         this.categoryCollection = categoryCollection;
     }
 
-    public Category getSubCategoryID() {
-        return subCategoryID;
+    public Category getParentID() {
+        return parentID;
     }
 
-    public void setSubCategoryID(Category subCategoryID) {
-        this.subCategoryID = subCategoryID;
-    }
-
-    @XmlTransient
-    public Collection<Movie> getMovieCollection() {
-        return movieCollection;
-    }
-
-    public void setMovieCollection(Collection<Movie> movieCollection) {
-        this.movieCollection = movieCollection;
+    public void setParentID(Category parentID) {
+        this.parentID = parentID;
     }
 
     @Override
