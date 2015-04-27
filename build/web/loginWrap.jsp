@@ -36,13 +36,14 @@
 
             $http(req).
                     success(function(data, status, headers, config) {
-                alert(data);
+                console(data);
                 if (data == 'true') {
-                    window.setTimeout(function() {
-                        // Move to a new location or you can do something else
-                        window.location.href = "/Internet-based-cinema-ticketing-system/index.jsp";
-
-                    }, 4000);
+                    window.location.reload();
+//                    window.setTimeout(function() {
+//                        // Move to a new location or you can do something else
+//                        window.location.href = "/Internet-based-cinema-ticketing-system/index.jsp";
+//
+//                    }, 4000);
                 } else {
                     window.location.href = "/Internet-based-cinema-ticketing-system/loginError.html";
                 }

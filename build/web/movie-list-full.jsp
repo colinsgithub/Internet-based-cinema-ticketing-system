@@ -40,159 +40,15 @@
         <![endif]-->
     </head>
 
-    <body> 
+    <body ng-app="movieListFull"> 
         <div class="wrapper">
-            <!-- Banner -->
-<!--            <div class="banner-top">
-                <img alt='top banner' src="http://placehold.it/1600x90">
-            </div>-->
-
             <!-- Header section -->
-            <header class="header-wrapper">
-                <div class="container">
-                    <!-- Logo link-->
-                    <a href='index.html' class="logo">
-                        <img alt='logo' src="images/logo.png">
-                    </a>
-
-                    <!-- Main website navigation-->
-                    <nav id="navigation-box">
-                        <!-- Toggle for mobile menu mode -->
-                        <a href="#" id="navigation-toggle">
-                            <span class="menu-icon">
-                                <span class="icon-toggle" role="button" aria-label="Toggle Navigation">
-                                    <span class="lines"></span>
-                                </span>
-                            </span>
-                        </a>
-
-                        <!-- Link navigation -->
-                        <ul id="navigation">
-                            <li>
-                                <span class="sub-nav-toggle plus"></span>
-                                <a href="#">Pages</a>
-                                <ul>
-                                    <li class="menu__nav-item"><a href="movie-page-left.html">Single movie (rigth sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="movie-page-right.html">Single movie (left sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="movie-page-full.html">Single movie (full widht)</a></li>
-                                    <li class="menu__nav-item"><a href="movie-list-left.html">Movies list (rigth sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="movie-list-right.html">Movies list (left sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="movie-list-full.html">Movies list (full widht)</a></li>
-                                    <li class="menu__nav-item"><a href="single-cinema.html">Single cinema</a></li>
-                                    <li class="menu__nav-item"><a href="cinema-list.html">Cinemas list</a></li>
-                                    <li class="menu__nav-item"><a href="trailer.html">Trailers</a></li>
-                                    <li class="menu__nav-item"><a href="rates-left.html">Rates (rigth sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="rates-right.html">Rates (left sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="rates-full.html">Rates (full widht)</a></li>
-                                    <li class="menu__nav-item"><a href="offers.html">Offers</a></li>
-                                    <li class="menu__nav-item"><a href="contact.html">Contact us</a></li>
-                                    <li class="menu__nav-item"><a href="404.html">404 error</a></li>
-                                    <li class="menu__nav-item"><a href="coming-soon.html">Coming soon</a></li>
-                                    <li class="menu__nav-item"><a href="login.html">Login/Registration</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="sub-nav-toggle plus"></span>
-                                <a href="page-elements.html">Features</a>
-                                <ul>
-                                    <li class="menu__nav-item"><a href="typography.html">Typography</a></li>
-                                    <li class="menu__nav-item"><a href="page-elements.html">Shortcodes</a></li>
-                                    <li class="menu__nav-item"><a href="column.html">Columns</a></li>
-                                    <li class="menu__nav-item"><a href="icon-font.html">Icons</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="sub-nav-toggle plus"></span>
-                                <a href="page-elements.html">Booking steps</a>
-                                <ul>
-                                    <li class="menu__nav-item"><a href="book1.html">Booking step 1</a></li>
-                                    <li class="menu__nav-item"><a href="book2.html">Booking step 2</a></li>
-                                    <li class="menu__nav-item"><a href="book3-buy.html">Booking step 3 (buy)</a></li>
-                                    <li class="menu__nav-item"><a href="book3-reserve.html">Booking step 3 (reserve)</a></li>
-                                    <li class="menu__nav-item"><a href="book-final.html">Final ticket view</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="sub-nav-toggle plus"></span>
-                                <a href="gallery-four.html">Gallery</a>
-                                <ul>
-                                    <li class="menu__nav-item"><a href="gallery-four.html">4 col gallery</a></li>
-                                    <li class="menu__nav-item"><a href="gallery-three.html">3 col gallery</a></li>
-                                    <li class="menu__nav-item"><a href="gallery-two.html">2 col gallery</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="sub-nav-toggle plus"></span>
-                                <a href="news-left.html">News</a>
-                                <ul>
-                                    <li class="menu__nav-item"><a href="news-left.html">News (rigth sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="news-right.html">News (left sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="news-full.html">News (full widht)</a></li>
-                                    <li class="menu__nav-item"><a href="single-page-left.html">Single post (rigth sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="single-page-right.html">Single post (left sidebar)</a></li>
-                                    <li class="menu__nav-item"><a href="single-page-full.html">Single post (full widht)</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="sub-nav-toggle plus"></span>
-                                <a href="#">Mega menu</a>
-                                <ul class="mega-menu container">
-                                    <li class="col-md-3 mega-menu__coloum">
-                                        <h4 class="mega-menu__heading">Now in the cinema</h4>
-                                        <ul class="mega-menu__list">
-                                            <li class="mega-menu__nav-item"><a href="#">The Counselor</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Bad Grandpa</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Blue Is the Warmest Color</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Capital</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Spinning Plates</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Bastards</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                                        <ul class="mega-menu__list">
-                                            <li class="mega-menu__nav-item"><a href="#">Gravity</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Captain Phillips</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Carrie</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Cloudy with a Chance of Meatballs 2</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="col-md-3 mega-menu__coloum">
-                                        <h4 class="mega-menu__heading">Ending soon</h4>
-                                        <ul class="mega-menu__list">
-                                            <li class="mega-menu__nav-item"><a href="#">Escape Plan</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Rush</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Prisoners</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Enough Said</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">The Fifth Estate</a></li>
-                                            <li class="mega-menu__nav-item"><a href="#">Runner Runner</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                                        <ul class="mega-menu__list">
-                                            <li class="mega-menu__nav-item"><a href="#">Insidious: Chapter 2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <!-- Additional header buttons / Auth and direct link to booking-->
-                    <div class="control-panel">
-                        <a href="#" class="btn btn--sign login-window">Sign in</a>
-                        <a href="#" class="btn btn-md btn--warning btn--book login-window">Book a ticket</a>
-                    </div>
-
-                </div>
-            </header>
+            <%@include file="header.jsp" %>
 
             <!-- Search bar -->
-            <div class="search-wrapper">
+            <div class="search-wrapper" style="margin-top: 55px;">
                 <div class="container container--add">
-                    <form id='search-form' method='get' class="search">
+                    <form id='search-form' method='get' class="search" style="top: 10px;">
                         <input type="text" class="search__field" placeholder="Search">
                         <select name="sorting_item" id="search-sort" class="search__sort" tabindex="0">
                             <option value="1" selected='selected'>By title</option>
@@ -207,47 +63,24 @@
             </div>
 
             <!-- Main content -->
-            <section class="container">
+            <section class="container" ng-controller="movieListFilterController">
                 <div class="col-sm-12">
                     <h2 class="page-heading">Movies</h2>
 
                     <div class="select-area">
-                        <form class="select" method='get'>
-                            <select name="select_item" class="select__sort" tabindex="0">
-                                <option value="1" selected='selected'>London</option>
-                                <option value="2">New York</option>
-                                <option value="3">Paris</option>
-                                <option value="4">Berlin</option>
-                                <option value="5">Moscow</option>
-                                <option value="3">Minsk</option>
-                                <option value="4">Warsawa</option>
-                                <option value="5">Kiev</option>
-                            </select>
-                        </form>
-
                         <div class="datepicker">
                             <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                            <input type="text" id="datepicker" value='03/10/2014' class="datepicker__input">
+                            <input ng-change="filterRequest()" ng-model="filter.date" type="text" id="datepicker" class="datepicker__input">
+                        </div>
+                        <div class="select select--cinema" method=''>
+                            <select ng-change="filterRequest()" ng-model="filter.cinema"  ng-options='c.cinemaName for c in cinemas' name="select_item" class="select__sort" tabindex="0">
+<!--                                <option ng-repeat='c in cinemas' ng-value="c.cinemaID">{{c.cinemaName}}</option>-->
+                            </select>
                         </div>
 
-                        <form class="select select--cinema" method='get'>
-                            <select name="select_item" class="select__sort" tabindex="0">
-                                <option value="1" selected='selected'>Cineworld</option>
-                                <option value="2">Empire</option>
-                                <option value="3">Everyman</option>
-                                <option value="4">Odeon</option>
-                                <option value="5">Picturehouse</option>
-                            </select>
-                        </form>
-
                         <form class="select select--film-category" method='get'>
-                            <select name="select_item" class="select__sort" tabindex="0">
-                                <option value="2" selected='selected'>Children's</option>
-                                <option value="3">Comedy</option>
-                                <option value="4">Drama</option>
-                                <option value="5">Fantasy</option>
-                                <option value="6">Horror</option>
-                                <option value="7">Thriller</option>
+                            <select ng-change="filterRequest()" ng-model="filter.category" ng-options='c.categoryName for c in categories' name="select_item" class="select__sort" tabindex="0">
+                                
                             </select>
                         </form>
 
@@ -1483,18 +1316,7 @@
 
                         <p class="login__tracker">or</p>
 
-                        <div class="field-wrap">
-                            <input type='email' placeholder='Email' name='user-email' class="login__input">
-                            <input type='password' placeholder='Password' name='user-password' class="login__input">
-
-                            <input type='checkbox' id='#informed' class='login__check styled'>
-                            <label for='#informed' class='login__check-info'>remember me</label>
-                        </div>
-
-                        <div class="login__control">
-                            <button type='submit' class="btn btn-md btn--warning btn--wider">sign in</button>
-                            <a href="#" class="login__tracker form__tracker">Forgot password?</a>
-                        </div>
+                        <%@include file="loginWrap.jsp"%>
                     </form>
                 </div>
 
@@ -1529,10 +1351,80 @@
         <script src="js/custom.js"></script>
 
         <script type="text/javascript">
-    $(document).ready(function() {
-        init_MovieList();
-    });
+            $(document).ready(function() {
+                init_MovieList();
+            });
         </script>
 
+        <script>
+
+            angular.module('movieListFull', [])
+                    .controller('movieListFilterController', function($scope, $location, $http, $filter) {
+                $scope.filter = {};
+
+                $scope.cinemas = [
+                    {cinemaID: 1, cinemaName: 'Cineworld'},
+                    {cinemaID: 2, cinemaName: 'Empire'},
+                    {cinemaID: 3, cinemaName: 'Everyman'},
+                    {cinemaID: 4, cinemaName: 'Odeon'},
+                    {cinemaID: 5, cinemaName: 'Picturehouse'}
+                ];
+                
+                $scope.categories = [
+                    {categoryID: 1, categoryName : 'Children\'s'},
+                    {categoryID: 1, categoryName : 'Comedy'},
+                    {categoryID: 1, categoryName : 'Drama'},
+                    {categoryID: 1, categoryName : 'Fantasy'},
+                    {categoryID: 1, categoryName : 'Horror'},
+                    {categoryID: 1, categoryName : 'Thriller'}
+                ]
+               
+                $scope.filter.date = $filter('date')(new Date(), "MM/dd/yyyy");
+                $scope.filter.cinema = $scope.cinemas[0];
+                $scope.filter.category = $scope.categories[0];
+                
+                console.log($scope.filter);
+
+                $scope.filterRequest = function() {
+                    alert();
+                    console.log($scope.filter);
+                };
+
+
+//                        $scope.sdLoginRequest = function() {
+//                            var req = {
+//                                method: 'POST',
+//                                url: '/Internet-based-cinema-ticketing-system/LoginControl?action=validate&email=' + $scope.loginRequest.email + "&password=" + $scope.loginRequest.password,
+//                                headers: {
+//                                    'Content-Type': undefined
+//                                },
+//                                data: {
+//                                }
+//                            };
+//
+//
+//                            $http(req).
+//                                    success(function(data, status, headers, config) {
+//                                console(data);
+//                                if (data == 'true') {
+//                                    window.location.reload();
+//        //                    window.setTimeout(function() {
+//        //                        // Move to a new location or you can do something else
+//        //                        window.location.href = "/Internet-based-cinema-ticketing-system/index.jsp";
+//        //
+//        //                    }, 4000);
+//                                } else {
+//                                    window.location.href = "/Internet-based-cinema-ticketing-system/loginError.html";
+//                                }
+//                                // this callback will be called asynchronously
+//                                // when the response is available
+//                            }).
+//                                    error(function(data, status, headers, config) {
+//                                // called asynchronously if an error occurs
+//                                // or server returns response with an error status.
+//                            });
+//                        };
+            });
+        </script>
     </body>
 </html>
