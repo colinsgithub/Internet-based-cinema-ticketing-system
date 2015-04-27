@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/Internet-based-cinema-ticketing-system">
-    <Resource name="jdbc/ctsys" auth="Container" type="javax.sql.DataSource"
-    maxActive="20" maxIdle="5" maxWait="3000" removeAbandoned="true"
-    username="aiad001" password="aiad001"
-    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    url="jdbc:sqlserver://w2ksa.cs.cityu.edu.hk:1433;databaseName=aiad001_db;" />
+  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" maxActive="20" maxIdle="5" maxWait="3000" name="jdbc/ctsys" password="aiad001" removeAbandoned="true" type="javax.sql.DataSource" url="jdbc:sqlserver://w2ksa.cs.cityu.edu.hk:1433;databaseName=aiad001_db;" username="aiad001"/>
 </Context>
