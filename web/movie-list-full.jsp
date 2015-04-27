@@ -44,7 +44,7 @@
         <div class="wrapper">
             <!-- Header section -->
             <%@include file="header.jsp" %>
-            
+
             <!-- Search bar -->
             <div class="search-wrapper" style="margin-top: 55px;">
                 <div class="container container--add">
@@ -72,24 +72,15 @@
                             <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
                             <input ng-change="filterRequest()" ng-model="filter.date" type="text" id="datepicker" class="datepicker__input">
                         </div>
-                        <form class="select select--cinema" method='get'>
-                            <select ng-change="filterRequest()" ng-model="filter.cinema" name="select_item" class="select__sort" tabindex="0">
-                                <option value="1" ng-selected='true'>Cineworld</option>
-                                <option value="2">Empire</option>
-                                <option value="3">Everyman</option>
-                                <option value="4">Odeon</option>
-                                <option value="5">Picturehouse</option>
+                        <div class="select select--cinema" method=''>
+                            <select ng-change="filterRequest()" ng-model="filter.cinema"  ng-options='c.cinemaName for c in cinemas' name="select_item" class="select__sort" tabindex="0">
+<!--                                <option ng-repeat='c in cinemas' ng-value="c.cinemaID">{{c.cinemaName}}</option>-->
                             </select>
-                        </form>
+                        </div>
 
                         <form class="select select--film-category" method='get'>
-                            <select ng-change="filterRequest()" ng-model="filter.category" name="select_item" class="select__sort" tabindex="0">
-                                <option value="2">Children's</option>
-                                <option value="3">Comedy</option>
-                                <option value="4">Drama</option>
-                                <option value="5">Fantasy</option>
-                                <option value="6">Horror</option>
-                                <option value="7">Thriller</option>
+                            <select ng-change="filterRequest()" ng-model="filter.category" ng-options='c.categoryName for c in categories' name="select_item" class="select__sort" tabindex="0">
+                                
                             </select>
                         </form>
 
@@ -1367,19 +1358,39 @@
 
         <script>
 
-                    angular.module('movieListFull', [])
-                            .controller('movieListFilterController', function($scope, $location, $http, $filter) {
-                        $scope.filter = {};
-                        
-                        $scope.filter.date = $filter('date')(new Date(), "MM/dd/yyyy");
-                        console.log($scope.filter.date);
-        
-                        $scope.filterRequest = function() {
-                            alert();
-                            console.log($scope.filter);
-                        };
-                        
-                        
+            angular.module('movieListFull', [])
+                    .controller('movieListFilterController', function($scope, $location, $http, $filter) {
+                $scope.filter = {};
+
+                $scope.cinemas = [
+                    {cinemaID: 1, cinemaName: 'Cineworld'},
+                    {cinemaID: 2, cinemaName: 'Empire'},
+                    {cinemaID: 3, cinemaName: 'Everyman'},
+                    {cinemaID: 4, cinemaName: 'Odeon'},
+                    {cinemaID: 5, cinemaName: 'Picturehouse'}
+                ];
+                
+                $scope.categories = [
+                    {categoryID: 1, categoryName : 'Children\'s'},
+                    {categoryID: 1, categoryName : 'Comedy'},
+                    {categoryID: 1, categoryName : 'Drama'},
+                    {categoryID: 1, categoryName : 'Fantasy'},
+                    {categoryID: 1, categoryName : 'Horror'},
+                    {categoryID: 1, categoryName : 'Thriller'}
+                ]
+               
+                $scope.filter.date = $filter('date')(new Date(), "MM/dd/yyyy");
+                $scope.filter.cinema = $scope.cinemas[0];
+                $scope.filter.category = $scope.categories[0];
+                
+                console.log($scope.filter);
+
+                $scope.filterRequest = function() {
+                    alert();
+                    console.log($scope.filter);
+                };
+
+
 //                        $scope.sdLoginRequest = function() {
 //                            var req = {
 //                                method: 'POST',
@@ -1413,7 +1424,7 @@
 //                                // or server returns response with an error status.
 //                            });
 //                        };
-                    });
+            });
         </script>
     </body>
 </html>
