@@ -22,17 +22,17 @@
                     <span class="sub-nav-toggle plus"></span>
                     <a href="#">Pages</a>
                     <ul>
-<!--                        <li class="menu__nav-item"><a href="movie-page-left.html">Single movie (rigth sidebar)</a></li>
-                        <li class="menu__nav-item"><a href="movie-page-right.html">Single movie (left sidebar)</a></li>-->
+                        <!--                        <li class="menu__nav-item"><a href="movie-page-left.html">Single movie (rigth sidebar)</a></li>
+                                                <li class="menu__nav-item"><a href="movie-page-right.html">Single movie (left sidebar)</a></li>-->
                         <li class="menu__nav-item"><a href="movie-page-full.html">Single movie (full widht)</a></li>
-<!--                        <li class="menu__nav-item"><a href="movie-list-left.html">Movies list (rigth sidebar)</a></li>
-                        <li class="menu__nav-item"><a href="movie-list-right.html">Movies list (left sidebar)</a></li>-->
-                        <li class="menu__nav-item"><a href="movie-list-full.html">Movies list (full widht)</a></li>
+                        <!--                        <li class="menu__nav-item"><a href="movie-list-left.html">Movies list (rigth sidebar)</a></li>
+                                                <li class="menu__nav-item"><a href="movie-list-right.html">Movies list (left sidebar)</a></li>-->
+                        <li class="menu__nav-item"><a href="movie-list-full.jsp">Movies list (full widht)</a></li>
                         <li class="menu__nav-item"><a href="single-cinema.html">Single cinema</a></li>
                         <li class="menu__nav-item"><a href="cinema-list.html">Cinemas list</a></li>
                         <li class="menu__nav-item"><a href="trailer.html">Trailers</a></li>
-<!--                        <li class="menu__nav-item"><a href="rates-left.html">Rates (rigth sidebar)</a></li>
-                        <li class="menu__nav-item"><a href="rates-right.html">Rates (left sidebar)</a></li>-->
+                        <!--                        <li class="menu__nav-item"><a href="rates-left.html">Rates (rigth sidebar)</a></li>
+                                                <li class="menu__nav-item"><a href="rates-right.html">Rates (left sidebar)</a></li>-->
                         <li class="menu__nav-item"><a href="rates-full.html">Rates (full widht)</a></li>
                         <li class="menu__nav-item"><a href="offers.html">Offers</a></li>
                         <li class="menu__nav-item"><a href="contact.html">Contact us</a></li>
@@ -41,16 +41,16 @@
                         <li class="menu__nav-item"><a href="login.jsp">Login/Registration</a></li>
                     </ul>
                 </li>
-<!--                <li>
-                    <span class="sub-nav-toggle plus"></span>
-                    <a href="page-elements.html">Features</a>
-                    <ul>
-                        <li class="menu__nav-item"><a href="typography.html">Typography</a></li>
-                        <li class="menu__nav-item"><a href="page-elements.html">Shortcodes</a></li>
-                        <li class="menu__nav-item"><a href="column.html">Columns</a></li>
-                        <li class="menu__nav-item"><a href="icon-font.html">Icons</a></li>
-                    </ul>
-                </li>-->
+                <!--                <li>
+                                    <span class="sub-nav-toggle plus"></span>
+                                    <a href="page-elements.html">Features</a>
+                                    <ul>
+                                        <li class="menu__nav-item"><a href="typography.html">Typography</a></li>
+                                        <li class="menu__nav-item"><a href="page-elements.html">Shortcodes</a></li>
+                                        <li class="menu__nav-item"><a href="column.html">Columns</a></li>
+                                        <li class="menu__nav-item"><a href="icon-font.html">Icons</a></li>
+                                    </ul>
+                                </li>-->
                 <li>
                     <span class="sub-nav-toggle plus"></span>
                     <a href="page-elements.html">Booking steps</a>
@@ -131,26 +131,29 @@
         </nav>
 
         <!-- Additional header buttons / Auth and direct link to booking-->
+        <!--        <div class="control-panel">
+                    <div class="auth auth--home">
+                        <div class="auth__show">
+                            <span class="auth__image">
+                                <img alt="" src="http://placehold.it/31x31">
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn--sign btn--singin">
+                            me
+                        </a>
+                        <ul class="auth__function">
+                            <li><a href="#" class="auth__function-item">Watchlist</a></li>
+                            <li><a href="#" class="auth__function-item">Booked tickets</a></li>
+                            <li><a href="#" class="auth__function-item">Discussion</a></li>
+                            <li><a href="#" class="auth__function-item">Settings</a></li>
+                        </ul>
+        
+                    </div>
+                    <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
+                </div>-->
         <div class="control-panel">
-            <div class="auth auth--home">
-                <div class="auth__show">
-                    <span class="auth__image">
-                        <img alt="" src="http://placehold.it/31x31">
-                    </span>
-                </div>
-                <a href="#" class="btn btn--sign btn--singin">
-                    me
-                </a>
-                <ul class="auth__function">
-                    <li><a href="#" class="auth__function-item">Watchlist</a></li>
-                    <li><a href="#" class="auth__function-item">Booked tickets</a></li>
-                    <li><a href="#" class="auth__function-item">Discussion</a></li>
-                    <li><a href="#" class="auth__function-item">Settings</a></li>
-                </ul>
-
-            </div>
-            <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
+            <a href="#" class="btn btn--sign login-window">Sign in</a>
+            <a href="#" class="btn btn-md btn--warning btn--book login-window">Book a ticket</a>
         </div>
-
     </div>
 </header>

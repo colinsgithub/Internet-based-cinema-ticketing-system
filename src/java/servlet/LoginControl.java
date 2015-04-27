@@ -27,7 +27,7 @@ public class LoginControl extends HttpServlet {
 //            String data = buffer.toString();
 //            System.out.println(data);
             this.doValidate(request, response);
-            
+
         }
     }
 
@@ -35,13 +35,18 @@ public class LoginControl extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String pwd = request.getParameter("password");
+        System.out.println(email + pwd);
         if ((email != null && !email.isEmpty())
                 || (pwd != null && !pwd.isEmpty())) {
 //            System.out.println(request.getContextPath() + "/index.jsp");
 //            response.sendRedirect("login.jsp");
-
+            if (email.equals("user@gmail.com") && pwd.equals("user")) {
+                response.getWriter().write("true");
+            } else {
+                response.getWriter().write("false");
+            }
+            return;
         }
-        response.getWriter().write("true");
-        response.sendRedirect("index.jsp");
+        response.getWriter().write("false");
     }
 }
