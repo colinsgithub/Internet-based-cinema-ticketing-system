@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author poonkaho
+ * @author user
  */
 @Entity
 @Table(name = "Seat")
@@ -32,7 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Seat.findAll", query = "SELECT s FROM Seat s"),
     @NamedQuery(name = "Seat.findBySeatID", query = "SELECT s FROM Seat s WHERE s.seatID = :seatID"),
-    @NamedQuery(name = "Seat.findBySeatName", query = "SELECT s FROM Seat s WHERE s.seatName = :seatName")})
+    @NamedQuery(name = "Seat.findBySeatName", query = "SELECT s FROM Seat s WHERE s.seatName = :seatName"),
+    @NamedQuery(name = "Seat.findBySurcharge", query = "SELECT s FROM Seat s WHERE s.surcharge = :surcharge")})
 public class Seat implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,6 +45,9 @@ public class Seat implements Serializable {
     @Basic(optional = false)
     @Column(name = "seatName")
     private String seatName;
+    @Basic(optional = false)
+    @Column(name = "surcharge")
+    private int surcharge;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "seatID")
     private Collection<Ticket> ticketCollection;
     @JoinColumn(name = "houseID", referencedColumnName = "houseID")
@@ -56,9 +61,10 @@ public class Seat implements Serializable {
         this.seatID = seatID;
     }
 
-    public Seat(Integer seatID, String seatName) {
+    public Seat(Integer seatID, String seatName, int surcharge) {
         this.seatID = seatID;
         this.seatName = seatName;
+        this.surcharge = surcharge;
     }
 
     public Integer getSeatID() {
@@ -75,6 +81,14 @@ public class Seat implements Serializable {
 
     public void setSeatName(String seatName) {
         this.seatName = seatName;
+    }
+
+    public int getSurcharge() {
+        return surcharge;
+    }
+
+    public void setSurcharge(int surcharge) {
+        this.surcharge = surcharge;
     }
 
     @XmlTransient

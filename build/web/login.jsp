@@ -303,7 +303,7 @@
         <script src="js/custom.js"></script>
         <!-- Angular-->
         <script src="js/angular.min.js"></script>
-
+        
         <script>
 
             angular.module('login', [])
@@ -324,12 +324,15 @@
 
                     $http(req).
                             success(function(data, status, headers, config) {
+                        if (data == 'true') {
+                            window.setTimeout(function() {
+                                // Move to a new location or you can do something else
+                                window.location.href = "/Internet-based-cinema-ticketing-system/index.jsp";
 
-                        window.setTimeout(function() {
-                            // Move to a new location or you can do something else
-                            window.location.href = "/Internet-based-cinema-ticketing-system/index.jsp";
-
-                        }, 4000);                        
+                            }, 4000);
+                        } else {
+                                window.location.href = "/Internet-based-cinema-ticketing-system/loginError.html";
+                        }
                         // this callback will be called asynchronously
                         // when the response is available
                     }).

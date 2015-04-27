@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author poonkaho
+ * @author user
  */
 @Entity
 @Table(name = "House")
@@ -43,9 +44,9 @@ public class House implements Serializable {
     @Column(name = "seatNums")
     private Integer seatNums;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "houseID")
-    private Collection<MovieSession> movieSessionCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "houseID")
     private Collection<Seat> seatCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "houseID")
+    private Collection<MovieSession> movieSessionCollection;
     @JoinColumn(name = "cinemaID", referencedColumnName = "cinemaID")
     @ManyToOne(optional = false)
     private Cinema cinemaID;
@@ -74,21 +75,21 @@ public class House implements Serializable {
     }
 
     @XmlTransient
-    public Collection<MovieSession> getMovieSessionCollection() {
-        return movieSessionCollection;
-    }
-
-    public void setMovieSessionCollection(Collection<MovieSession> movieSessionCollection) {
-        this.movieSessionCollection = movieSessionCollection;
-    }
-
-    @XmlTransient
     public Collection<Seat> getSeatCollection() {
         return seatCollection;
     }
 
     public void setSeatCollection(Collection<Seat> seatCollection) {
         this.seatCollection = seatCollection;
+    }
+
+    @XmlTransient
+    public Collection<MovieSession> getMovieSessionCollection() {
+        return movieSessionCollection;
+    }
+
+    public void setMovieSessionCollection(Collection<MovieSession> movieSessionCollection) {
+        this.movieSessionCollection = movieSessionCollection;
     }
 
     public Cinema getCinemaID() {

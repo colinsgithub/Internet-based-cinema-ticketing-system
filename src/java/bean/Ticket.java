@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package bean;
@@ -20,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author poonkaho
+ * @author user
  */
 @Entity
 @Table(name = "Ticket")
@@ -35,15 +36,15 @@ public class Ticket implements Serializable {
     @Basic(optional = false)
     @Column(name = "ticketID")
     private Integer ticketID;
-    @JoinColumn(name = "userID", referencedColumnName = "userID")
-    @ManyToOne(optional = false)
-    private User userID;
-    @JoinColumn(name = "seatID", referencedColumnName = "seatID")
-    @ManyToOne(optional = false)
-    private Seat seatID;
     @JoinColumn(name = "msID", referencedColumnName = "msID")
     @ManyToOne(optional = false)
     private MovieSession msID;
+    @JoinColumn(name = "seatID", referencedColumnName = "seatID")
+    @ManyToOne(optional = false)
+    private Seat seatID;
+    @JoinColumn(name = "userID", referencedColumnName = "userID")
+    @ManyToOne(optional = false)
+    private User userID;
 
     public Ticket() {
     }
@@ -60,12 +61,12 @@ public class Ticket implements Serializable {
         this.ticketID = ticketID;
     }
 
-    public User getUserID() {
-        return userID;
+    public MovieSession getMsID() {
+        return msID;
     }
 
-    public void setUserID(User userID) {
-        this.userID = userID;
+    public void setMsID(MovieSession msID) {
+        this.msID = msID;
     }
 
     public Seat getSeatID() {
@@ -76,12 +77,12 @@ public class Ticket implements Serializable {
         this.seatID = seatID;
     }
 
-    public MovieSession getMsID() {
-        return msID;
+    public User getUserID() {
+        return userID;
     }
 
-    public void setMsID(MovieSession msID) {
-        this.msID = msID;
+    public void setUserID(User userID) {
+        this.userID = userID;
     }
 
     @Override

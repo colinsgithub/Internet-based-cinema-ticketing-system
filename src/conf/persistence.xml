@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="Internet-based-cinema-ticketing-systemPU" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="ctsysPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>bean.Movie</class>
     <class>bean.User</class>
@@ -11,17 +11,9 @@
     <class>bean.MovieImage</class>
     <class>bean.Seat</class>
     <class>bean.MovieSession</class>
-    <class>bean.Category_1</class>
-    <class>bean.MovieSession_1</class>
-    <class>bean.Ticket_1</class>
-    <class>bean.Syssegments</class>
-    <class>bean.House_1</class>
-    <class>bean.Cinema_1</class>
-    <class>bean.MovieImage_1</class>
-    <class>bean.User_1</class>
-    <class>bean.Sysconstraints</class>
-    <class>bean.Seat_1</class>
-    <class>bean.Movie_1</class>
+    <class>bean.Comment</class>
+    <class>bean.Actor</class>
+    <class>bean.MovieVideo</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://w2ksa.cs.cityu.edu.hk:1433/aiad001_db"/>
